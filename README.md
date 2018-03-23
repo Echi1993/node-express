@@ -1,6 +1,6 @@
-# my Vue
+# node blog
 使用node + mongodb + express的ejx模板构建的小型博客项目(练手项目)
-> Vue project
+> my node test project
 
 ## Build Setup
 
