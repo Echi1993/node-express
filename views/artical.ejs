@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>
+    <%= title %>
+  </title>
+  <link rel="stylesheet" href="/css/iconfont.css">
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <link rel="stylesheet" href="/css/base.css">
+</head>
+
+<body>
+  <div id="echi" class="wraper" v-clock>
+    <div class="wraper-content">
+      <div class="artical-list">
+        <% artical.forEach(function(item){%>
+          <a class="artical-item" href="/pub">
+            <!-- <div class="artical-header">
+              <%= item.author%>
+            </div> -->
+            <div class="artical-body">
+              <img src="<%=item.cover %>" alt="<%=item.title%>" title="<%=item.title%>">
+            </div>
+            <div class="artical-footer">
+              <div class="artical-desc">
+                <%=item.desc%>
+              </div>
+              <div class="artical-time">
+                <%=item.time%>
+              </div>
+            </div>
+          </a>
+        <% }) %>
+      </div>
+    </div>
+  </div>
+  <script src="/js/vue.min.js"></script>
+  <script src="/js/axios.min.js"></script>
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script src="/js/base.js"></script>
+</body>
+
+</html>

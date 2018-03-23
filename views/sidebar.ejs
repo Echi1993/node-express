@@ -1,0 +1,29 @@
+<div class="side">
+    <div class="login-user">
+        <el-upload class="user-avatar" action="/uploader?type=avatar" name="up_img" :show-file-list="false" :on-success="handleAvatarSuccess"
+            :before-upload="beforeAvatarUpload">
+            <img v-if="userInfo.avatar" :src="userInfo.avatar" class="avatar">
+            <i v-else class="el-icon-plus user-avatar-icon"></i>
+        </el-upload>
+        <!-- <img class="login-avatar" :src="userInfo.avatar" :alt="userInfo.name" :title="userInfo.name"> -->
+        <h2 class="login-name">欢迎您
+            <span v-text="userInfo.name"></span>
+        </h2>
+    </div>
+    <div class="userinfo">
+        <p>
+            <input class="user-input" type="text" v-model="userInfo.job" @blur="updateUserInfo" placeholder="点击可输入职业">
+        </p>
+        <p>邮箱 : <input class="user-input" type="text" v-model="userInfo.email" @blur="updateUserInfo" placeholder="点击可输入邮箱"></p>
+        <p>QQ : <input class="user-input" type="text" v-model="userInfo.QQ" @blur="updateUserInfo" placeholder="点击可输入QQ"></p>
+    </div>
+    <div class="navbar">
+        <span class="navbar-item" @click="iframeSrc = '/artical'">首页</span>
+        <span class="navbar-item" @click="iframeSrc = '/pub'">发布</span>
+        <!-- <span class="navbar-item" @click="#">个人信息</span> -->
+        <span class="navbar-item" @click="iframeSrc = '/setting'">设置</span>
+    </div>
+    <div class="logout">
+        <a href="/logout">注销登录</a>
+    </div>
+</div>

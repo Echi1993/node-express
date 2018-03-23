@@ -1,0 +1,11 @@
+/*可以在这里添加你自己的css*/
+.view {
+    margin: 10px auto 0;
+    width: 95%;
+}
+
+p>img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}

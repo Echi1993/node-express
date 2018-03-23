@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>
+    <%= title %>
+  </title>
+  <link rel="stylesheet" href="/css/iconfont.css">
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <link rel="stylesheet" href="/css/base.css">
+</head>
+
+<body>
+  <div id="echi" class="wraper" v-clock>
+    <div class="wraper-content">
+      <div class="pub-item">
+        <div class="pub-header">发布文章</div>
+        <div class="pub-body">
+          <el-form :model="pubData" label-width="100px" class="pub-form">
+            <el-form-item label="文章标题">
+              <el-input v-model="pubData.title"></el-input>
+            </el-form-item>
+            <el-form-item label="文章描述">
+              <el-input type="textarea" v-model="pubData.desc"></el-input>
+            </el-form-item>
+            <el-form-item label="文章封面">
+              <el-upload class="pub-cover" action="/uploader" name="up_img" :show-file-list="false" :on-success="handlePubSuccess"
+                :before-upload="beforeAvatarUpload">
+                <img v-if="pubData.cover" :src="pubData.cover" class="avatar">
+                <i v-else class="el-icon-plus pub-cover-icon"></i>
+              </el-upload>
+            </el-form-item>
+            <div id="pub_editor"></div>
+          </el-form>
+        </div>
+        <div class="pub-footer">
+          <el-button type="primary" @click="pubContent">发布</el-button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/js/vue.min.js"></script>
+  <script src="/js/axios.min.js"></script>
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script src="/ueditor/ueditor.config.js"></script>
+  <script src="/ueditor/ueditor.all.min.js">
+  </script>
+  <script src="/js/base.js"></script>
+  <script>
+    var ue = UE.getEditor('pub_editor');
+  </script>
+</body>
+
+</html>
